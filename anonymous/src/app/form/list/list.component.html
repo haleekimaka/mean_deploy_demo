@@ -1,0 +1,13 @@
+<a [routerLink]="['/']">
+  <button class="btn btn-info">Home</button>
+</a>
+
+
+<div class="boxy" *ngFor="let note of notes">
+  <div class="time"><p>Noted on: {{note.createdAt | date:"MMM d', 'yyyy',' h:mma"}}</p></div>
+  <div class="note"><p>{{note.content}}</p></div>
+  <div class="row btns">
+    <a (click)="getNote(note._id)"><button class="btn btn-success">Update</button></a>
+    <a (click)="deleteNote(note._id)"><button class="btn btn-danger">Delete</button></a>
+  </div>
+</div>

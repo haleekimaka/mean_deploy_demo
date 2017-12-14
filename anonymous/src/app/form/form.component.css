@@ -1,0 +1,13 @@
+.errors {
+  margin-left: 1.5rem;
+  width: 30rem;
+}
+
+.error {
+  color: #a12222;
+  display: inline;
+}
+
+.fill{
+    width: 50rem;;
+}

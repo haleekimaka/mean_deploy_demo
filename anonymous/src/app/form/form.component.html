@@ -1,0 +1,12 @@
+
+<form (submit)="onSubmit()" #formData='ngForm'>
+    <div class="row">
+        <label for="content">Note:</label>
+        <input class="fill" type="text" name="content" required minlength="3" [(ngModel)]='newNote.content' #content='ngModel'>
+        <div class="error errors" *ngIf="!content.valid && content.touched">Notes must be greater than 3 characters</div>
+        <input class="btn btn-primary" type="submit" value="Add Note">
+    </div>
+</form>
+<br>
+<a [routerLink]="['list']"><button class="btn btn-info">Notes</button></a>
+<router-outlet></router-outlet>
