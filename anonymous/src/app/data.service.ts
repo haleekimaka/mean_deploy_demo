@@ -11,31 +11,31 @@ export class DataService {
   constructor(private _http: HttpClient) { }
 
   retrieveAll() {
-    this._http.get('http://localhost:8000/notes').subscribe(
+    this._http.get('/notes').subscribe(
       (notes: any[]) => { this.notesObserver.next(notes) }, 
       (errorResponse) => { console.log(errorResponse) }
     );
   }
   getNote(note_id) {
-    this._http.get('http://localhost:8000/notes/'+ note_id).subscribe(
+    this._http.get('/notes/'+ note_id).subscribe(
       (note: any[]) => { this.noteUpdater.next(note); console.log(note); },
       (errorResponse) => { console.log(errorResponse) }
     );
   }
   createNote(note: Note) {
-    this._http.post('http://localhost:8000/notes', note).subscribe(
+    this._http.post('/notes', note).subscribe(
       (response) => { this.retrieveAll() },
       (errorResponse) => { console.log(errorResponse) }
     );
   }
   updateNote(note: Note, note_id) {
-    this._http.put('http://localhost:8000/notes/'+ note_id, note).subscribe(
+    this._http.put('/notes/'+ note_id, note).subscribe(
       (response) => { this.retrieveAll() },
       (errorResponse) => { console.log(errorResponse) }
     );
   }
   removeNote(note_id) {
-    this._http.delete('http://localhost:8000/notes/' + note_id).subscribe(
+    this._http.delete('/notes/' + note_id).subscribe(
       (response) => { this.retrieveAll() },
       (errorResponse) => { console.log(errorResponse) }
     );
